@@ -21,7 +21,7 @@ Mugesh Kumar NR
 Sentinel-AI: Voice & Motion Activated Multimodal Edge Security System
 
 ## 2. Platform Selection
-Selected Platform: ** Edge-AI – NVIDIA Jetson Nano **
+Selected Platform: Edge-AI – NVIDIA Jetson Nano
 
 The Sentinel-AI project uses Edge-AI because it requires real-time vision and audio processing directly on the device without cloud dependence.
 The Jetson Nano provides GPU acceleration (CUDA + TensorRT) for efficient deep-learning inference while maintaining low power use (<10 W).

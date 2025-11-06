@@ -21,6 +21,7 @@ Uttam Kumar Saha
 
 Mugesh Kumar NR
 
+link: https://github.com/Mircea-s-classes/ai-hardware-project-proposal-mst_3/
 
 ---
 

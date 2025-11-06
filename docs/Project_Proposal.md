@@ -10,7 +10,10 @@
 
 
 ## 1. Project Title
-MST_3
+
+Sentinel-AI: Voice & Motion Activated Multimodal Edge Security System
+
+***MST_3***
 
 Md Nasim Afroj Taj
 
@@ -18,7 +21,8 @@ Uttam Kumar Saha
 
 Mugesh Kumar NR
 
-Sentinel-AI: Voice & Motion Activated Multimodal Edge Security System
+
+---
 
 ## 2. Platform Selection
 Selected Platform: Edge-AI – NVIDIA Jetson Nano
@@ -26,6 +30,8 @@ Selected Platform: Edge-AI – NVIDIA Jetson Nano
 The Sentinel-AI project uses Edge-AI because it requires real-time vision and audio processing directly on the device without cloud dependence.
 The Jetson Nano provides GPU acceleration (CUDA + TensorRT) for efficient deep-learning inference while maintaining low power use (<10 W).
 It supports multimodal AI (voice + vision), open-source frameworks (PyTorch, OpenCV, Jetson-Inference), and ensures privacy, low latency, and scalability—making it ideal for intelligent on-device security applications.
+
+--- 
 
 ## 3. Problem Definition
 Conventional CCTV systems record continuously, wasting power and storage while exposing private data through cloud dependence.  

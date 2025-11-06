@@ -13,7 +13,10 @@
 MST_3
 
 Md Nasim Afroj Taj
+
 Uttam Kumar Saha
+
+Mugesh Kumar NR
 
 Sentinel-AI: Voice & Motion Activated Multimodal Edge Security System
 

@@ -91,18 +91,19 @@ The problem directly relates to **AI hardware efficiency, latency, and scalabili
 
 ## 9. Resources Required
 
-| **Component / Resource** | **Estimated Cost (USD)** | **Purpose** |
-|-------------------------|------------------------:|-------------|
-| NVIDIA Jetson Nano (4 GB Dev Kit) | $99 | Edge AI compute platform |
-| Camera Module (USB / Pi Cam V2) | $25 | Vision input for detection |
-| ReSpeaker 2-Mic HAT / USB Microphone | $20 | Voice command recognition |
-| Buzzer + LED GPIO Modules | $7 | Alert signaling system |
-| 32 GB MicroSD Card (UHS-1) | $10 | OS + model storage |
-| 5V 4A Power Supply | $15 | Stable system power |
-| Breadboard & Jumper Wires | $5 | Sensor prototyping |
-| Monitor & HDMI Cable *(optional)* | $15 | Initial setup / debugging |
-| YOLOv5 Pre-trained Model + Speech Dataset | Free | Object detection + keyword spotting |
-| JetPack SDK + TensorRT Toolchain | Free | Deployment optimization |
+| Component / Resource | Estimated Cost (USD) | Purpose |
+|----------------------|----------------------|---------|
+| **NVIDIA Jetson Nano (4 GB Dev Kit)** | $99 | Edge AI compute platform |
+| **Camera Module (USB / Pi Cam V2)** | $25 | Vision input for detection |
+| **ReSpeaker 2-Mic HAT / USB Microphone** | $20 | Voice command recognition |
+| **PIR Motion Sensor (HC-SR501)** | $5 | Motion detection trigger for security events |
+| **Buzzer + LED GPIO Modules** | $7 | Alert signaling system |
+| **32 GB MicroSD Card (UHS-1)** | $10 | OS + model storage |
+| **5V 4A Power Supply** | $15 | Stable system power |
+| **Breadboard & Jumper Wires** | $5 | Sensor prototyping |
+| **Monitor & HDMI Cable (optional)** | $15 | Initial setup / debugging |
+| **YOLOv5 Pre-trained Model + Speech Dataset** | Free | Object detection + keyword spotting |
+| **JetPack SDK + TensorRT Toolchain** | Free | Deployment optimization |
 
 
 ---

@@ -65,21 +65,22 @@ Sentinel-AI solves this by creating a **smart, local, multimodal surveillance sy
 
 ---
 
-## 5. System Architecture Diagram
-
-```mermaid
 flowchart TD
-    A[Wake-Word Module] -->|Trigger| C[Jetson Nano]
-    B[PIR Motion Sensor] -->|Trigger| C
-    C --> D[Camera Capture]
-    D --> E[Vision Inference (TensorRT)]
-    E --> F[Face/Object Detection]
-    F --> G[Local Alerts (LED/Buzzer)]
-    F --> H[Optional Flask Dashboard]
-    F --> I[Store Clip Locally]
-```
 
----
+    %% Inputs
+    A[Wake-Word Module] -->|Trigger| C[Jetson Nano Controller]
+    B[PIR Motion Sensor] -->|Trigger| C
+
+    %% Processing
+    C --> D[Camera Activation & Frame Capture]
+    D --> E[Vision Inference<br/>(TensorRT Accelerated)]
+    E --> F[Face / Object Detection (MTCNN / YOLOv5n)]
+
+    %% Outputs
+    F --> G[Local Alerts<br/>(LED / Buzzer)]
+    F --> H[Flask Dashboard<br/>(Optional)]
+    F --> I[Local Storage<br/>(Save Triggered Clips)]
+
 
 ## 6. Tools & Technologies
 

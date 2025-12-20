@@ -1,44 +1,69 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/v3c0XywZ)
-# AI Hardware Project Template
-ECE 4332 / ECE 6332 — AI Hardware  
-Fall 2025
+# Sentinel-AI  
+Voice & Motion Activated Multimodal Edge Security System
 
-## 🧭 Overview
-This repository provides a structured template for your team project in the AI Hardware class.  
-Each team will **clone this template** to start their own project repository.
+Sentinel-AI is an event-driven, privacy-focused edge security system designed to run fully offline on embedded AI hardware such as the NVIDIA Jetson Nano. Unlike traditional CCTV systems that record continuously, Sentinel-AI activates only when needed and combines vision and audio intelligence to make contextual security decisions at the edge.
 
-## 🗂 Folder Structure
-- `docs/` – project proposal and documentation  
-- `presentations/` – midterm and final presentation slides  
-- `report/` – final written report (IEEE LaTeX and DOCX versions included)  
-- `src/` – source code for software, hardware, and experiments  
-- `data/` – datasets or pointers to data used
+This project was developed as part of **MST_3 – AI Hardware Project**.
 
-## 🧑‍🤝‍🧑 Team Setup
-Each team should have **2–4 members (3 preferred)**.  
-List all team members in `docs/Project_Proposal.md`.
+---
 
-## 📋 Required Deliverables
-1. **Project Proposal** — due Nov. 5, 2025, 11:59 PM  
-2. **Midterm Presentation** — Nov. 19,2025, 11:59 PM  
-3. **Final Presentation and Report** — Dec. 17, 11:59 PM
+## Motivation
 
-## 🚀 How to Use This Template
-1. Click **“Use this template”** on GitHub.  
-2. Name your repo `ai-hardware-teamXX` (replace XX with your team name or number).  
-3. Clone it locally:
-   ```bash
-   git clone https://github.com/YOUR-ORG/ai-hardware-teamXX.git
-   ```
-4. Add your work in the appropriate folders.
+Conventional surveillance systems suffer from:
+- Continuous recording and high power consumption  
+- Large and unnecessary storage usage  
+- Cloud dependence leading to privacy risks and latency  
+- Lack of contextual awareness  
 
-## 🧾 Submissions
-- Commit and push all deliverables before each deadline.
-- Tag final submissions with:
-   ```bash
-   git tag v1.0-final
-   git push origin v1.0-final
-   ```
+Sentinel-AI addresses these issues by providing:
+- Event-driven activation  
+- Fully offline inference  
+- Multimodal intelligence (vision + audio)  
+- Lightweight, edge-friendly design  
 
-## 📜 License
-This project is released under the MIT License.
+---
+
+## Key Features
+
+- Real-time face detection and recognition  
+- Lightweight MTCNN-based pipeline  
+- Fully offline operation (no cloud dependency)  
+- Requires only **4 images per identity**  
+- Designed for Jetson-class edge hardware  
+- Privacy-preserving local inference  
+
+---
+
+## System Workflow
+
+**Listen → See → Decide → Act**
+
+1. Audio or motion trigger (planned / future work)  
+2. Camera activates for face detection  
+3. Face recognition using local models  
+4. Decision taken locally (record, alert, log)  
+
+---
+
+## Hardware Requirements
+
+- NVIDIA Jetson Nano  
+- USB Camera  
+- Microphone (optional, future integration)  
+- MicroSD card or SSD  
+- Power supply  
+
+---
+
+## Software Stack
+
+- HTML, CSS, JavaScript  
+- `face-api.js` for face detection and recognition  
+- WebRTC for camera access  
+- MTCNN (P-Net, R-Net, O-Net)  
+- Fully local browser-based inference  
+
+---
+
+## Repository Structure
+

@@ -122,3 +122,104 @@ Running the application directly from `file://` paths will often fail and preven
 Also ensure:
 - No other application is currently using the webcam
 - The USB camera is properly connected and recognized by the system
+- 
+
+## Configuring Labeled Identities
+
+In the JavaScript code, labeled identities are defined as:
+
+```js
+const labels = ["yoga vignesh", "Mughesh"];
+```
+
+### To Add a New Person
+
+1. Create a new folder:
+labels/NewPerson/
+
+
+2. Add face images:
+labels/NewPerson/1.png
+labels/NewPerson/2.png
+
+3. Add the label in your JavaScript code:
+```js
+const labels = ["yoga vignesh", "Mughesh", "NewPerson"];
+```
+Tip: Use well-lit, front-facing images at a similar scale for best recognition accuracy.
+
+
+## Performance Tips (Jetson Nano)
+
+If performance or FPS is low, try the following optimizations:
+
+### Reduce Camera Resolution
+
+Lowering the input video resolution significantly improves inference speed on Jetson Nano:
+
+```js
+.getUserMedia({
+  video: { width: 640, height: 480 },
+  audio: false,
+})
+```
+You may further reduce resolution if needed, depending on accuracy requirements.
+
+Adjust Inference Rate
+* Increase the face detection interval from 100 ms → 200–300 ms
+* This reduces CPU/GPU load while maintaining acceptable responsiveness
+
+Environment Optimization
+* Prefer good, uniform lighting to reduce detection failures
+* Close other applications and unnecessary browser tabs
+* Avoid running heavy background processes during inference
+
+These steps help ensure smoother real-time performance on resource-constrained edge devices like the Jetson Nano.
+
+
+## Troubleshooting
+
+### A) “Failed to fetch ./models …”
+
+- Ensure the `models/` directory exists in the **same folder as `index.html`**
+- Ensure the HTTP server is started from the **correct directory**
+- Confirm model files include:
+  - `manifest.json`
+  - corresponding weight shard files (`*.bin`)
+
+---
+
+### B) “No face detected for ./labels/…”
+
+- The label image may not contain a clear face
+- Try:
+  - Cropping the face more tightly
+  - Using better lighting
+  - Replacing the image with a clearer one
+
+---
+
+### C) Face Boxes Appear but Names Are “Unknown”
+
+- Add more images per label (**2 → 5+ recommended**)
+- Ensure the following match **exactly**:
+  - Folder name
+  - Label name in JavaScript
+  - Image path
+
+---
+
+## (Optional) Faster Node.js Mode (Advanced)
+
+`face-api.js` can also run in **Node.js** using TensorFlow bindings for improved performance.
+
+### Recommended Stack
+- `@tensorflow/tfjs-node`
+- `canvas`
+
+### Example Approach
+```js
+await faceapi.nets.ssdMobilenetv1.loadFromDisk('./models')
+```
+
+⚠️ Note: Node.js deployment was not standardized for this class submission, but may be explored for future optimization.

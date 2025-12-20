@@ -1,69 +1,103 @@
-# Sentinel-AI  
+# Sentinel-AI (MST_3)
 Voice & Motion Activated Multimodal Edge Security System
 
-Sentinel-AI is an event-driven, privacy-focused edge security system designed to run fully offline on embedded AI hardware such as the NVIDIA Jetson Nano. Unlike traditional CCTV systems that record continuously, Sentinel-AI activates only when needed and combines vision and audio intelligence to make contextual security decisions at the edge.
-
-This project was developed as part of **MST_3 – AI Hardware Project**.
+**Course:** ECE 6380 – AI Hardware Design  
+**Instructor:** Prof. Mircea R. Stan  
+**Team:** MST_3  
+**Members:** Md Nasim Afroj Taj, Mughesh Kumar NR, Uttam Kumar Saha  
 
 ---
 
-## Motivation
+## Overview
+Sentinel-AI is a **privacy-preserving, event-driven edge security system** designed to run entirely on local hardware. The system performs **real-time face detection and face recognition** using lightweight deep learning models and is targeted for deployment on the **NVIDIA Jetson Nano**.
 
-Conventional surveillance systems suffer from:
-- Continuous recording and high power consumption  
-- Large and unnecessary storage usage  
-- Cloud dependence leading to privacy risks and latency  
-- Lack of contextual awareness  
-
-Sentinel-AI addresses these issues by providing:
-- Event-driven activation  
-- Fully offline inference  
-- Multimodal intelligence (vision + audio)  
-- Lightweight, edge-friendly design  
+Unlike traditional CCTV or cloud-based surveillance systems, Sentinel-AI avoids continuous recording and cloud dependency, reducing **energy consumption, latency, and privacy risks**.
 
 ---
 
 ## Key Features
-
-- Real-time face detection and recognition  
-- Lightweight MTCNN-based pipeline  
-- Fully offline operation (no cloud dependency)  
-- Requires only **4 images per identity**  
-- Designed for Jetson-class edge hardware  
-- Privacy-preserving local inference  
+- Fully **offline edge AI inference**
+- Real-time **face detection and recognition**
+- Lightweight, browser-based implementation using **face-api.js**
+- Designed for **Jetson Nano–class hardware**
+- Simple dataset management (no retraining required)
 
 ---
 
-## System Workflow
+## Hardware Platform
+- **NVIDIA Jetson Nano (4GB)**
+- USB webcam (UVC compliant)
+- Local storage (microSD)
+- Optional peripherals (planned): microphone, motion sensor, buzzer
 
-**Listen → See → Decide → Act**
-
-1. Audio or motion trigger (planned / future work)  
-2. Camera activates for face detection  
-3. Face recognition using local models  
-4. Decision taken locally (record, alert, log)  
-
----
-
-## Hardware Requirements
-
-- NVIDIA Jetson Nano  
-- USB Camera  
-- Microphone (optional, future integration)  
-- MicroSD card or SSD  
-- Power supply  
+All computation is performed locally on the Jetson Nano.
 
 ---
 
 ## Software Stack
-
-- HTML, CSS, JavaScript  
-- `face-api.js` for face detection and recognition  
-- WebRTC for camera access  
-- MTCNN (P-Net, R-Net, O-Net)  
-- Fully local browser-based inference  
+- JavaScript + HTML
+- **face-api.js** (SSD MobileNet + face embeddings)
+- WebRTC (`getUserMedia`) for camera access
+- Local HTTP server for execution
 
 ---
 
-## Repository Structure
+## System Workflow
+1. Camera stream initialized on Jetson Nano  
+2. Faces detected in real time  
+3. Facial embeddings generated  
+4. Detected faces matched against local labeled dataset  
+5. Bounding boxes and identity labels displayed  
 
+*(Audio and motion triggers are implemented in logic but not physically demonstrated.)*
+
+---
+
+## Dataset
+- Small, local dataset (2–4 images per person)
+- Stored as labeled folders
+- No model training required
+- New users added by placing images in dataset folder
+
+---
+
+## Results
+- Real-time face detection with smooth bounding boxes
+- Accurate recognition of known users under good lighting
+- Unknown faces correctly labeled
+- Fully offline operation demonstrated on Jetson Nano
+
+---
+
+## Challenges & Limitations
+- Performance sensitive to lighting conditions
+- Small dataset limits recognition robustness
+- Audio, motion sensor, and buzzer not physically integrated
+- Browser-based pipeline not fully GPU-optimized
+
+---
+
+## Future Work
+- Integrate microphone, motion sensor, and buzzer
+- Implement wake-word and motion-triggered activation
+- Improve dataset diversity
+- Optimize pipeline using GPU acceleration / TensorRT
+- Add alerts and notification mechanisms
+
+---
+
+## How to Run (Quick)
+1. Clone the repo on Jetson Nano  
+2. Place face-api.js models in `models/`  
+3. Add labeled images in `lables/<name>/`  
+4. Start local server:
+   ```bash
+   python3 -m http.server 8000
+   ```
+5. Open http://localhost:8000 in Chromium
+6. Allow camera access
+(See detailed instructions in the full documentation.)
+
+References
+* face-api.js: https://github.com/justadudewhohacks/face-api.js
+* NVIDIA Jetson Nano: https://developer.nvidia.com/embedded/jetson-nano-developer-kit
